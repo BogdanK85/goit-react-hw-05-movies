@@ -1,12 +1,12 @@
-const { getMoviesReviews } = require('Api/API');
-const { useState, useCallback, useEffect } = require('react');
-const { useParams } = require('react-router-dom');
-const {
-  ReviewsWrap,
+import { getMoviesReviews } from 'Api/API';
+import { useCallback, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import {
   ReviewsItem,
-  ReviewsTitle,
   ReviewsText,
-} = require('./Reviews.styled');
+  ReviewsTitle,
+  ReviewsWrap,
+} from './Reviews.styled';
 
 const Reviews = () => {
   const [reviewsInfo, setReviewsInfo] = useState([]);

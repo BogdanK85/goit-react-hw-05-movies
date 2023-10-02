@@ -1,24 +1,23 @@
 import { MovieDetailsStyle } from './MovieDetailsPage.styled';
 import NoPoster from '../../images/no-poster-available.png';
-
-const { getMoviesDetailsById } = require('Api/API');
-const { useState, useCallback, useEffect, Suspense } = require('react');
-const { useLocation, useParams, Outlet, Link } = require('react-router-dom');
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Suspense, useCallback, useEffect, useState } from 'react';
+import { getMoviesDetailsById } from 'Api/API';
 
 const MovieDetailsPage = () => {
   const location = useLocation();
-  const { moviesId } = useParams();
+  const { moviesID } = useParams();
   const [moviesInfo, setMoviesInfo] = useState({});
   const backLink = location?.state?.from ?? '/';
 
   const fetchMoviesDetails = useCallback(async () => {
     try {
-      const data = await getMoviesDetailsById(moviesId);
+      const data = await getMoviesDetailsById(moviesID);
       setMoviesInfo(data);
     } catch (error) {
       console.log(error.message);
     }
-  }, [moviesId]);
+  }, [moviesID]);
 
   useEffect(() => {
     fetchMoviesDetails();
@@ -28,7 +27,7 @@ const MovieDetailsPage = () => {
   const year = date.getFullYear();
   const score = Math.round(moviesInfo.vote_average * 10);
   const overview = moviesInfo.overview;
-  const gernes = moviesInfo.gernes;
+  const genres = moviesInfo.genres;
 
   return (
     <>
@@ -42,7 +41,7 @@ const MovieDetailsPage = () => {
             width={180}
             src={
               moviesInfo.poster_path
-                ? `https://image.tmdb.org/t/p/original/${moviesInfo.poster_path}`
+                ? `https://image.tmdb.org/t/p/w500/${moviesInfo.poster_path}`
                 : NoPoster
             }
             alt={moviesInfo.title}
@@ -55,9 +54,9 @@ const MovieDetailsPage = () => {
               <p className="card-score">User score {score} %</p>
               <h3 className="card-overview">Overview:</h3>
               <p className="text-overview">{overview}</p>
-              <h3 className="gernes-title"> Gernes:</h3>
-              {gernes &&
-                gernes.map(gerne => <span key={gerne.id}>{gerne.name}</span>)}
+              <h3 className="genres-title"> Genres:</h3>
+              {genres &&
+                genres.map(genre => <span key={genre.id}>{genre.name}</span>)}
             </div>
             <div>
               <h3 className="information-title">Additional Information</h3>

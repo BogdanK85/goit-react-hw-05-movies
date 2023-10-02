@@ -50,7 +50,11 @@ const TrendingMoviesList = ({ trendFilms, searchResults }) => {
   return (
     <MoviesListStyle>
       {isHomePage && <TrendingTitle>Trending Movies</TrendingTitle>}
-      <TrendingMovieList>
+      <TrendingMovieList
+        trendFilms={trendFilms}
+        searchResults={searchResults}
+        title="Trending Movies"
+      >
         {arrayList.map(item => (
           <li key={item.id}>
             <MoviePreview>

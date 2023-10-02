@@ -23,9 +23,10 @@ export const SearchBtn = styled.button`
   margin-bottom: 0;
   gap: 5px;
   font-size: 16px;
+  font-weight: 600;
   line-height: 16px;
   text-align: center;
-  color: aqua;
+  color: rgb(255, 77, 77);
   border: 1px solid #f5dddd;
   border-radius: 5px;
   background-color: #fdd2d2;
@@ -54,6 +55,6 @@ export const Input = styled.input`
   border: none;
   border-radius: 5px;
   padding: 5px;
-  color: #f5dddd;
+  color: rgb(255, 77, 77);
   background: rgba(0, 0, 0, 0.25);
 `;

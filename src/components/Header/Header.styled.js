@@ -16,7 +16,7 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled.div`
-  width: 60px;
+  width: 160px;
 `;
 
 export const Link = styled(NavLink)`

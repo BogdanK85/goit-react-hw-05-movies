@@ -58,7 +58,7 @@ export const MovieDetailsStyle = styled.section`
     margin-bottom: 18px;
   }
 
-  .gernes-title {
+  .genres-title {
     margin-bottom: 8px;
   }
   .informatin-title {

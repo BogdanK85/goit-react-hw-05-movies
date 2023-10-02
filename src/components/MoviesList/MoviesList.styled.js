@@ -5,7 +5,6 @@ export const MoviesListStyle = styled.section`
 `;
 export const TrendingMovieList = styled.ul`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;

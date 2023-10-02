@@ -1,9 +1,8 @@
 import { getSearchedMovies } from 'Api/API';
+import TrendingMoviesList from 'components/MoviesList/MoviesList';
 import { Searchbar } from 'components/Searchbar/Searchbar';
-
-const { default: MoviesList } = require('components/MoviesList/MoviesList');
-const { useState, useCallback, useEffect } = require('react');
-const { useSearchParams } = require('react-router-dom');
+import { useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const MoviePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -46,7 +45,7 @@ const MoviePage = () => {
     <>
       <Searchbar onSubmit={handleSubmit} />
       {loading && <div>Loading data...</div>}
-      <MoviesList searchResults={searchResults} />
+      <TrendingMoviesList searchResults={searchResults} />
     </>
   );
 };

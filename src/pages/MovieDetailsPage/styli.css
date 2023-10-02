@@ -56,10 +56,11 @@ li {
   width: 100%;
   height: auto;
 } */
-/* li {
+li {
   align-items: center;
   max-width: 200px;
-  background-color: silver;
+  background-color: rgb(255, 77, 77);
   overflow: hidden;
+  font-weight: 700;
   border-radius: 10px;
-} */
+}
