@@ -1,27 +1,34 @@
 import { getTrendingMovies } from 'Api/API';
 import TrendingMoviesList from 'components/MoviesList/MoviesList';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const HomePage = () => {
+export const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  const location = useLocation();
 
-  const fetchTrendingMovies = useCallback(async () => {
-    try {
-      const data = await getTrendingMovies();
-      setTrendingMovies(data.results);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
   useEffect(() => {
+    const fetchTrendingMovies = async () => {
+      try {
+        const movies = await getTrendingMovies();
+        setTrendingMovies(movies);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
     fetchTrendingMovies();
-  }, [fetchTrendingMovies]);
+  }, []);
+
+  // useEffect(() => {
+  //   fetchTrendingMovies();
+  // }, [fetchTrendingMovies]);
 
   return (
     <div>
-      <TrendingMoviesList movies={trendingMovies} />
+      <TrendingMoviesList movies={trendingMovies} state={{ from: location }} />
     </div>
   );
 };
 
-export default HomePage;
+// export default HomePage;

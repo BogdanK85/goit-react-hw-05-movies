@@ -17,7 +17,7 @@ width: 200px;
   border-radius: 5px;
   overflow: hidden;
   `;
-export const CastImage = styled.li`
+export const CastImage = styled.img`
   width: 100%;
   height: auto;
 `;

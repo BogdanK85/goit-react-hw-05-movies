@@ -14,6 +14,7 @@ const MoviePage = () => {
   const handleSubmit = query => {
     setSearchParams({ query: query });
     setSearchResults([]);
+    fetchSearchedMovies(query);
   };
 
   const fetchSearchedMovies = useCallback(async query => {
@@ -45,7 +46,7 @@ const MoviePage = () => {
     <>
       <Searchbar onSubmit={handleSubmit} />
       {loading && <div>Loading data...</div>}
-      <TrendingMoviesList searchResults={searchResults} />
+      <TrendingMoviesList movies={searchResults} />
     </>
   );
 };

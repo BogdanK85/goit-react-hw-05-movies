@@ -1,33 +1,39 @@
 import { MovieDetailsStyle } from './MovieDetailsPage.styled';
 import NoPoster from '../../images/no-poster-available.png';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import { Suspense, useCallback, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { getMoviesDetailsById } from 'Api/API';
 
 const MovieDetailsPage = () => {
   const location = useLocation();
-  const { moviesID } = useParams();
+  const { moviesId } = useParams();
   const [moviesInfo, setMoviesInfo] = useState({});
-  const backLink = location?.state?.from ?? '/';
+  const backLink = location.state?.from ?? '/';
+  // const saerchQuery = location.state?.saerchQuery ?? '';
+  // const navigate = useNavigate();
+  // const refLocation = useRef(location.state ?? '/');
 
-  const fetchMoviesDetails = useCallback(async () => {
+  useEffect(() => {
     try {
-      const data = await getMoviesDetailsById(moviesID);
-      setMoviesInfo(data);
+      const fetchMoviesDetails = async () => {
+        const movieDetails = await getMoviesDetailsById(moviesId);
+        setMoviesInfo(movieDetails);
+      };
+      fetchMoviesDetails();
     } catch (error) {
       console.log(error.message);
     }
-  }, [moviesID]);
-
-  useEffect(() => {
-    fetchMoviesDetails();
-  }, [fetchMoviesDetails]);
+  }, [moviesId]);
 
   const date = new Date(moviesInfo.release_date);
   const year = date.getFullYear();
   const score = Math.round(moviesInfo.vote_average * 10);
   const overview = moviesInfo.overview;
   const genres = moviesInfo.genres;
+
+  // const handleReturnBack = () => {
+  //   navigate(refLocation.current);
+  // };
 
   return (
     <>
@@ -65,6 +71,7 @@ const MovieDetailsPage = () => {
                   <Link
                     className="info-link"
                     to="cast"
+                    // to={`cast?searchQuery=${searchQuery}`}
                     state={{ from: backLink }}
                   >
                     Casts
@@ -74,6 +81,7 @@ const MovieDetailsPage = () => {
                   <Link
                     className="info-link last-link"
                     to="review"
+                    // to={`review?searchQuery=${searchQuery}`}
                     state={{ from: backLink }}
                   >
                     Reviews

@@ -1,5 +1,5 @@
 import { getMoviesReviews } from 'Api/API';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   ReviewsItem,
@@ -10,20 +10,19 @@ import {
 
 const Reviews = () => {
   const [reviewsInfo, setReviewsInfo] = useState([]);
-  const { moviesID } = useParams();
-
-  const fetchMoviesReviews = useCallback(async () => {
-    try {
-      const data = await getMoviesReviews(moviesID);
-      setReviewsInfo(data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, [moviesID]);
+  const { moviesId } = useParams();
 
   useEffect(() => {
+    const fetchMoviesReviews = async () => {
+      try {
+        const response = await getMoviesReviews(moviesId);
+        setReviewsInfo(response);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
     fetchMoviesReviews();
-  }, [fetchMoviesReviews]);
+  }, [moviesId]);
 
   return (
     <ReviewsWrap>
@@ -31,10 +30,10 @@ const Reviews = () => {
         {reviewsInfo.length === 0 ? (
           <ReviewsText>There are no reviews</ReviewsText>
         ) : (
-          reviewsInfo.map(reviewsInfo => (
-            <ReviewsItem key={reviewsInfo.id}>
-              <ReviewsTitle>Autor: {reviewsInfo.author}</ReviewsTitle>
-              <ReviewsText>{reviewsInfo.content}</ReviewsText>
+          reviewsInfo.map(reviewsInf => (
+            <ReviewsItem key={reviewsInf.id}>
+              <ReviewsTitle>Autor: {reviewsInf.author}</ReviewsTitle>
+              <ReviewsText>{reviewsInf.content}</ReviewsText>
             </ReviewsItem>
           ))
         )}

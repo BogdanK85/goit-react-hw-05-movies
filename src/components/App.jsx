@@ -1,4 +1,4 @@
-import HomePage from 'pages/HomePage/HomePage';
+import { HomePage } from 'pages/HomePage/HomePage';
 import MovieDetailsPage from 'pages/MovieDetailsPage/MovieDetailsPage';
 import MoviePage from 'pages/MoviePage/MoviePage';
 import { Routes, Route } from 'react-router-dom';
@@ -14,7 +14,7 @@ export const App = () => {
         <Route path="movies" element={<MoviePage />} />
         <Route path="movies/:moviesId" element={<MovieDetailsPage />}>
           <Route path="cast" element={<Casts />} />
-          <Route path="reviews" element={<Reviews />} />
+          <Route path="review" element={<Reviews />} />
         </Route>
       </Route>
     </Routes>
