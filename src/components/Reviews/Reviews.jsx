@@ -26,18 +26,18 @@ const Reviews = () => {
 
   return (
     <ReviewsWrap>
-      <ul>
-        {reviewsInfo.length === 0 ? (
-          <ReviewsText>There are no reviews</ReviewsText>
-        ) : (
-          reviewsInfo.map(reviewsInf => (
+      {reviewsInfo && reviewsInfo.length === 0 ? (
+        <ReviewsText>There are no reviews</ReviewsText>
+      ) : (
+        <ul>
+          {reviewsInfo.map(reviewsInf => (
             <ReviewsItem key={reviewsInf.id}>
-              <ReviewsTitle>Autor: {reviewsInf.author}</ReviewsTitle>
+              <ReviewsTitle>Author: {reviewsInf.author}</ReviewsTitle>
               <ReviewsText>{reviewsInf.content}</ReviewsText>
             </ReviewsItem>
-          ))
-        )}
-      </ul>
+          ))}
+        </ul>
+      )}
     </ReviewsWrap>
   );
 };

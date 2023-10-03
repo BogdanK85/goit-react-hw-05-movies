@@ -1,18 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   MovieImage,
   MoviePreview,
   MoviesListStyle,
   MovieTitle,
-  TrendingMovieList,
+  MoviesList,
 } from './MoviesList.styled';
 import NoPoster from '../../images/no-poster-available.png';
 
-const TrendingMoviesList = ({ movies, state }) => {
+export const MovieList = ({ movies, state }) => {
+  const location = useLocation();
   return (
     <MoviesListStyle>
       {/* {<TrendingTitle>Trending Movies</TrendingTitle>} */}
-      <TrendingMovieList>
+      <MoviesList>
         {movies &&
           movies.map(movie => {
             const { id, title, poster_path } = movie;
@@ -22,7 +23,7 @@ const TrendingMoviesList = ({ movies, state }) => {
                   <Link
                     style={{ textDecoration: 'none', color: 'black' }}
                     to={`/movies/${id}`}
-                    state={{ state }}
+                    state={{ from: location }}
                   >
                     <MovieImage
                       width={200}
@@ -44,9 +45,7 @@ const TrendingMoviesList = ({ movies, state }) => {
               </li>
             );
           })}
-      </TrendingMovieList>
+      </MoviesList>
     </MoviesListStyle>
   );
 };
-
-export default TrendingMoviesList;

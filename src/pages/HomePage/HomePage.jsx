@@ -1,11 +1,9 @@
 import { getTrendingMovies } from 'Api/API';
-import TrendingMoviesList from 'components/MoviesList/MoviesList';
+import { MovieList } from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 export const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
@@ -26,7 +24,7 @@ export const HomePage = () => {
 
   return (
     <div>
-      <TrendingMoviesList movies={trendingMovies} state={{ from: location }} />
+      <MovieList movies={trendingMovies} />
     </div>
   );
 };

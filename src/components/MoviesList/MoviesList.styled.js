@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 export const MoviesListStyle = styled.section`
   text-align: center;
 `;
-export const TrendingMovieList = styled.ul`
+export const MoviesList = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
