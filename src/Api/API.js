@@ -8,10 +8,6 @@ axios.defaults.params = {
   language: 'en-US',
 };
 
-// export async function getTrendingMovies(page = 1) {
-//   const response = await axios.get('/trending/movie/day', { params: { page } });
-//   return response.data;
-// }
 export async function getTrendingMovies() {
   const { data } = await axios.get('trending/movie/week', {});
   return data.results;

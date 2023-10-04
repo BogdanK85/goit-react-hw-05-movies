@@ -18,15 +18,9 @@ export const HomePage = () => {
     fetchTrendingMovies();
   }, []);
 
-  // useEffect(() => {
-  //   fetchTrendingMovies();
-  // }, [fetchTrendingMovies]);
-
   return (
     <div>
       <MovieList movies={trendingMovies} />
     </div>
   );
 };
-
-// export default HomePage;

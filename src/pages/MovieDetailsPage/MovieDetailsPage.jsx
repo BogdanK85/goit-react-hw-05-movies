@@ -10,9 +10,6 @@ const MovieDetailsPage = () => {
   const [moviesInfo, setMoviesInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const backLink = location.state?.from ?? '/';
-  // const saerchQuery = location.state?.saerchQuery ?? '';
-  // const navigate = useNavigate();
-  // const refLocation = useRef(location.state ?? '/');
 
   useEffect(() => {
     const fetchMoviesDetails = async () => {
@@ -41,10 +38,6 @@ const MovieDetailsPage = () => {
   const score = Math.round(moviesInfo.vote_average * 10);
   const overview = moviesInfo.overview;
   const genres = moviesInfo.genres;
-
-  // const handleReturnBack = () => {
-  //   navigate(refLocation.current);
-  // };
 
   return (
     <>
@@ -86,7 +79,6 @@ const MovieDetailsPage = () => {
                       <Link
                         className="info-link"
                         to="cast"
-                        // to={`cast?searchQuery=${searchQuery}`}
                         state={{ from: backLink }}
                       >
                         Casts
@@ -96,7 +88,6 @@ const MovieDetailsPage = () => {
                       <Link
                         className="info-link last-link"
                         to="review"
-                        // to={`review?searchQuery=${searchQuery}`}
                         state={{ from: backLink }}
                       >
                         Reviews

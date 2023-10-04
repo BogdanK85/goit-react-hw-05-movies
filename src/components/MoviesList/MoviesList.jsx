@@ -12,10 +12,10 @@ export const MovieList = ({ movies, state }) => {
   const location = useLocation();
   return (
     <MoviesListStyle>
-      {/* {<TrendingTitle>Trending Movies</TrendingTitle>} */}
-      <MoviesList>
-        {movies &&
-          movies.map(movie => {
+      {movies && movies.length > 0 ? (
+        <MoviesList>
+          {' '}
+          {movies.map(movie => {
             const { id, title, poster_path } = movie;
             return (
               <li key={id}>
@@ -45,7 +45,12 @@ export const MovieList = ({ movies, state }) => {
               </li>
             );
           })}
-      </MoviesList>
+        </MoviesList>
+      ) : (
+        <MoviesList>
+          <p>No movies found</p>
+        </MoviesList>
+      )}
     </MoviesListStyle>
   );
 };
