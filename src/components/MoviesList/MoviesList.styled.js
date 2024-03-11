@@ -41,3 +41,11 @@ export const MovieTitle = styled.p`
   min-width: 45px;
   width: 100%;
 `;
+export const NoMovieTitle = styled.p`
+  font-weight: 600;
+  font-size: 25px;
+  text-align: center;
+  min-width: 45px;
+  width: 100%;
+  color: red;
+`;

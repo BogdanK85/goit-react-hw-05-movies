@@ -5,6 +5,7 @@ import {
   MoviesListStyle,
   MovieTitle,
   MoviesList,
+  NoMovieTitle,
 } from './MoviesList.styled';
 import NoPoster from '../../images/no-poster-available.png';
 
@@ -48,7 +49,7 @@ export const MovieList = ({ movies, state }) => {
         </MoviesList>
       ) : (
         <MoviesList>
-          <p>No movies found</p>
+          <NoMovieTitle>No movies found</NoMovieTitle>
         </MoviesList>
       )}
     </MoviesListStyle>
