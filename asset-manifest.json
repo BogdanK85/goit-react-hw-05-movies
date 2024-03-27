@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/search-movies/static/css/main.3ebe6542.css",
-    "main.js": "/search-movies/static/js/main.ccbc6789.js",
-    "static/media/no-photo.png": "/search-movies/static/media/no-photo.b9e58b09a02ab88b76fa.png",
-    "static/media/movies-logo.png": "/search-movies/static/media/movies-logo.48377e479d7f5e0d52bf.png",
-    "static/media/no-poster-available.png": "/search-movies/static/media/no-poster-available.7555b15218a0f4733bf7.png",
-    "index.html": "/search-movies/index.html",
-    "static/media/search.svg": "/search-movies/static/media/search.44144c63f1114bd734334869ead5c143.svg",
-    "main.3ebe6542.css.map": "/search-movies/static/css/main.3ebe6542.css.map",
-    "main.ccbc6789.js.map": "/search-movies/static/js/main.ccbc6789.js.map"
+    "main.css": "/search-movie/static/css/main.3ebe6542.css",
+    "main.js": "/search-movie/static/js/main.103fc42b.js",
+    "static/media/no-photo.png": "/search-movie/static/media/no-photo.b9e58b09a02ab88b76fa.png",
+    "static/media/movies-logo.png": "/search-movie/static/media/movies-logo.48377e479d7f5e0d52bf.png",
+    "static/media/no-poster-available.png": "/search-movie/static/media/no-poster-available.7555b15218a0f4733bf7.png",
+    "index.html": "/search-movie/index.html",
+    "static/media/search.svg": "/search-movie/static/media/search.44144c63f1114bd734334869ead5c143.svg",
+    "main.3ebe6542.css.map": "/search-movie/static/css/main.3ebe6542.css.map",
+    "main.103fc42b.js.map": "/search-movie/static/js/main.103fc42b.js.map"
   },
   "entrypoints": [
     "static/css/main.3ebe6542.css",
-    "static/js/main.ccbc6789.js"
+    "static/js/main.103fc42b.js"
   ]
 }
