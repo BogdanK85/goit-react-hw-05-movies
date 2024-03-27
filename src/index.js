@@ -9,7 +9,7 @@ import { GlobalStyle } from 'Styles/GlobalStyles.Styles';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/goit-react-hw-05-movies">
+    <BrowserRouter basename="/search-movie">
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <App />
